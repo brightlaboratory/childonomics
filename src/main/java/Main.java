@@ -74,14 +74,36 @@ public class Main {
             System.out.println();
         }
 
+        for (int i = 0; i < numOfStrategies; i++) {
+            stratArray[i].generatePayoffValues(numOfCategories);
+        }
+
         // Loop to print all categories
         for (int i = 0; i < numOfStrategies; i++) {
             System.out.printf("Strategy %d: \n", i+1);
+            System.out.printf("     Parent Payoff Value: %.2f\n", stratArray[i].getParentPayoff());
+            System.out.printf("     Child Payoff Value: %.2f\n", stratArray[i].getChildPayoff());
             for (int j = 0; j < numOfCategories; j++) {
-                System.out.printf("    Category: %s\n", stratArray[i].catArray[j].getCategoryName());
-                System.out.printf("         Fraction of Spend: %f\n", stratArray[i].catArray[j].getFracOfSpend());
+                System.out.printf("     Category: %s\n", stratArray[i].catArray[j].getCategoryName());
+                System.out.printf("         Fraction of Spend: %.2f\n", stratArray[i].catArray[j].getFracOfSpend());
                 System.out.printf("         Parent Value: %d\n", stratArray[i].catArray[j].getParentValue());
                 System.out.printf("         Child Value: %s\n", stratArray[i].catArray[j].getChildValue());
+            }
+            System.out.println();
+        }
+
+        // Making a payoff table
+        for(int i = 0; i < numOfStrategies; i++) {
+            for(int j = 0; j < numOfStrategies; j++) {
+                System.out.printf("Parent Payoff %d: %.2f  |  ", j, stratArray[j].getParentPayoff());
+            }
+            System.out.println();
+            for(int j = 0; j < numOfStrategies; j++) {
+                System.out.printf("Child Payoff %d: %.2f   |  ", i, stratArray[i].getChildPayoff());
+            }
+            System.out.println();
+            for(int j = 0; j < numOfStrategies; j++) {
+                System.out.printf("-------------------------");
             }
             System.out.println();
         }
