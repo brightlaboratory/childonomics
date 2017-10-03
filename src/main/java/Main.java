@@ -11,11 +11,6 @@ public class Main {
     static Scanner console = new Scanner(System.in);
 
     public static void main(String[] args) {
-        // Introductory text
-        System.out.println("Welcome to the Childoconomics project.");
-        System.out.println("This program will create a payoff table.");
-        System.out.println();
-
         // Variable declarations
         int numOfStrategies = 0;
         int numOfCategories = 0;
@@ -74,6 +69,7 @@ public class Main {
             System.out.println();
         }
 
+        // Generates payoff values for each strategy in stratArray
         for (int i = 0; i < numOfStrategies; i++) {
             stratArray[i].generatePayoffValues(numOfCategories);
         }
@@ -95,15 +91,15 @@ public class Main {
         // Making a payoff table
         for(int i = 0; i < numOfStrategies; i++) {
             for(int j = 0; j < numOfStrategies; j++) {
-                System.out.printf("Parent Payoff %d: %.2f  |  ", j, stratArray[j].getParentPayoff());
+                System.out.printf("Parent Payoff %d: %6.2f  |  ", j, stratArray[j].getParentPayoff());
             }
             System.out.println();
             for(int j = 0; j < numOfStrategies; j++) {
-                System.out.printf("Child Payoff %d: %.2f   |  ", i, stratArray[i].getChildPayoff());
+                System.out.printf("Child Payoff %d:  %6.2f  |  ", i, stratArray[i].getChildPayoff());
             }
             System.out.println();
-            for(int j = 0; j < numOfStrategies; j++) {
-                System.out.printf("-------------------------");
+            for(int j = 0; j < 27 * numOfStrategies; j++) {
+                System.out.printf("-");
             }
             System.out.println();
         }
