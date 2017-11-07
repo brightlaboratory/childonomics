@@ -14,7 +14,7 @@ public class Category {
     // Constructors
     public Category() {
         this.categoryName = null;
-        this.fracOfSpend = 0.0;
+        this.fracOfSpend = -1.0;
         this.parentValue = -1;
         this.childValue = -1;
     }
